@@ -50,6 +50,7 @@ namespace Translumo.Processing
         private IScreenCapturer _onceTimeCapturer;
 
         private long _lastTranslatedTextTicks;
+        private string _lastPrimaryText = string.Empty;
 
         private const float MIN_SCORE_THRESHOLD = 2.1f;
         
@@ -94,6 +95,7 @@ namespace Translumo.Processing
             }
 
             _lastTranslatedTextTicks = DateTime.UtcNow.Ticks;
+            _lastPrimaryText = string.Empty;
             _ctSource = new CancellationTokenSource();
             Task.Factory.StartNew(() => TranslateInternal(_ctSource.Token));
 
@@ -201,7 +203,18 @@ namespace Translumo.Processing
                         byte[] screenshot = _capturer.CaptureScreen();
                         var primaryDetected = _textProvider.GetText(primaryOcr, screenshot);
                         lastIterationType = IterationType.Short;
-                        if (primaryDetected.ValidityScore == 0 || _textResultCacheService.IsCached(primaryDetected.Text, sequentialText))
+                        if (primaryDetected.ValidityScore == 0)
+                        {
+                            continue;
+                        }
+
+                        if (primaryDetected.Text != _lastPrimaryText)
+                        {
+                            _lastPrimaryText = primaryDetected.Text;
+                            continue;
+                        }
+
+                        if (_textResultCacheService.IsCached(primaryDetected.Text, sequentialText))
                         {
                             continue;
                         }
