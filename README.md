@@ -1,36 +1,35 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Github All Releases](https://img.shields.io/github/downloads/ramjke/Translumo/total.svg)]()
 
 <p align="center">
   <img width="670" src="https://github.com/ramjke/Translumo/assets/29047281/8985049f-ea1c-428e-94be-042ece66cb54">
 </p>
-  <h2 align="center" style="border: 0">Advanced Real-Time Screen Translator</h2>
+  <h1 align="center" style="border: 0">KTranslate</h1>
+  <h3 align="center" style="border: 0">Advanced Real-Time Screen Translator, with local translation</h3>
 
 <p align="center"><strong>English</strong> | <a href="docs/README-RU.md"><strong>Русский</strong></a></p>
 
-## Sibling Project
-This project has a sibling called **[Lookupper](https://lookupper.com)** — a screen dictionary for language learning. It is similar to Translumo but built for a different purpose. Lookupper is built to help you *learn* a language, not just depend on a translator forever.
+## About This Fork
 
-Lookupper is commercial project with a free version. If you find it useful and decide to grab the Pro version, you'll also be supporting the development of both Lookupper and Translumo.
+KTranslate is a fork of [Translumo](https://github.com/ramjke/Translumo) by ramjke, used under the Apache License 2.0.
 
+Changes made in this fork:
 
-<a href="https://lookupper.com">
-<img width="300" alt="Lookupper" src="https://github.com/user-attachments/assets/ef2f83b3-e15f-4bd3-826e-858266f36c93" />
-</a>
+- **Ollama translator**: translates through a model running locally, so the app keeps working when the DeepL and Google web endpoints answer with 429 or a captcha.
+- **Speaker names**: the character label above a dialogue box is detected and kept out of the translation, and the learned names are reused so that names which are ordinary words (Sin, Guilty) stay untranslated.
+- Hotkey and OCR debounce adjustments.
 
+See [NOTICE](NOTICE) for the attribution required by the license.
 
-## Download Translumo
+## Download
 
-**Direct download link to the latest version:**  
-[Translumo_1.0.2.zip](https://github.com/ramjke/Translumo/releases/download/v.1.0.2/Translumo_1.0.2.zip)   
-After downloading, unzip the archive and run `Translumo.exe`.
+KTranslate has no released build yet: clone the repository and build it from source, as described in Build below.
 
-Version 1.0.x includes many changes and improvements compared to versions 0.9.x. You can view the full list of updates on the [Releases page](https://github.com/ramjke/Translumo/releases). 
+Builds of the original project are on the [Translumo releases page](https://github.com/ramjke/Translumo/releases).
 
 ## Main Features
 
 - **High text recognition precision**  
-  Translumo allows combining multiple OCR engines simultaneously. It uses a machine learning model to score each OCR result and selects the best one.  
+  KTranslate allows combining multiple OCR engines simultaneously. It uses a machine learning model to score each OCR result and selects the best one.  
 
   <p align="center">
     <img width="740" src="https://github.com/ramjke/Translumo/assets/29047281/649e5fab-a5de-4c54-a3d8-f7ea95b8f218">
@@ -44,7 +43,9 @@ Version 1.0.x includes many changes and improvements compared to versions 0.9.x.
 
 - **Integrated modern OCR engines**: Windows OCR (recommended), Tesseract 5.2 (legacy), EasyOCR (legacy)
 
-- **Available translators**: DeepL (recommended), Google Translate, Yandex Translate, Naver Papago, Ollama (local, requires a running Ollama server).
+- **Available translators**: Ollama (local, recommended), DeepL, Google Translate, Yandex Translate, Naver Papago.
+
+  Ollama runs the translation on your own machine, with no quota and no rate limiting. Install [Ollama](https://ollama.com), pull the model named in `OllamaTranslator.cs` (`ollama pull qwen2.5:14b`) and leave it running.
 
 - **Supported recognition languages**: English, Russian, Japanese, Chinese (Simplified), Korean.
 
@@ -79,7 +80,7 @@ Version 1.0.x includes many changes and improvements compared to versions 0.9.x.
 Tesseract is old, slow, and produces many errors.  
 EasyOCR is even slower, requires significant resources (including a specific GPU), and often leads to bugs.  
 
-It’s probably better to remove all other OCR engines and keep only WindowsOCR, but they are still included in Translumo for historical reasons.
+It’s probably better to remove all other OCR engines and keep only WindowsOCR, but they are still included for historical reasons.
 
 ### Select Minimum Capture Area
 Reducing the capture area decreases the chance of picking up random letters from the background. Larger frames take longer to process.
@@ -93,7 +94,7 @@ These modes are required for correct translation overlay display. If your game d
 ## FAQ
 
 **Q: I get "Failed to capture screen" or nothing happens after translation starts**  
-A: Ensure the target window is active. Restart Translumo or reopen the target window if needed.
+A: Ensure the target window is active. Restart KTranslate or reopen the target window if needed.
 
 **Q: Borderless/windowed mode is set, but the translation window is under the game**  
 A: With the game running and focused, press the hotkey (**Alt+T** by default) to hide and show the translation window.
@@ -114,7 +115,7 @@ A: Ensure the application path contains only Latin letters.
 1. Clone the repository (the **master** branch always corresponds to the latest release):
 
     ```bash
-    git clone https://github.com/ramjke/Translumo.git
+    git clone https://github.com/JKBustillo/KTranslate.git
     ```
 
 > Note: During the build, **binaries_extract.bat** will automatically download and extract models and Python binaries (~400 MB) to the target output directory.
@@ -130,6 +131,7 @@ A: Ensure the application path contains only Latin letters.
 
 ## Alternative Solutions
 
+- [Translumo](https://github.com/ramjke/Translumo) — the project this fork is based on.
 - [Lookupper](https://lookupper.com) — on-screen dictionary and translator for language learning.
 - [ScreTran](https://github.com/PavlikBender/ScreTran) — simple screen translator.
 - [ScreenTranslator](https://github.com/OneMoreGres/ScreenTranslator) - screen capture, OCR and translation tool.

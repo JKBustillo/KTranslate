@@ -1,0 +1,21 @@
+KTranslate
+Copyright 2026 Jose Bustillo
+
+This product includes software developed as part of Translumo
+(https://github.com/ramjke/Translumo), Copyright 2023 ramjke,
+licensed under the Apache License, Version 2.0.
+
+The following files were modified or added in this fork:
+
+  Added:
+    src/Translumo.Translation/Ollama/OllamaTranslator.cs
+    src/Translumo.Translation/SpeakerNames.cs
+
+  Modified:
+    src/Translumo.Translation/Translators.cs
+    src/Translumo.Translation/TranslatorFactory.cs
+    src/Translumo.Processing/TranslationProcessingService.cs
+    src/Translumo.Processing/TextProcessing/TextDetectionProvider.cs
+    src/Translumo.Processing/TextProcessing/TextDetectionResult.cs
+    src/Translumo/HotKeys/HotKeysConfiguration.cs
+    README.md
