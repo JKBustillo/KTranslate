@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for Translumo
+about: Suggest an idea for KTranslate
 title: ''
 labels: enhancement
 assignees: ''

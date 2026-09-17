@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to improve Translumo
+about: Create a report to improve KTranslate
 title: ''
 labels: bug
 assignees: ''

@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using KTranslate.Infrastructure.Constants;
+using KTranslate.Infrastructure.Language;
+using KTranslate.OCR;
+using KTranslate.Processing.Configuration;
+using KTranslate.Processing.Exceptions;
+using KTranslate.Translation;
+using static System.Threading.Tasks.Task;
+
+namespace KTranslate.Processing.TextProcessing
+{
+    public class TextDetectionProvider : IDisposable
+    {
+        public Languages Language
+        {
+            get => _textValidityPredictor.Language;
+            set
+            {
+                _textValidityPredictor.Language = value;
+                _languageDescriptor = _languageService.GetLanguageDescriptor(value);
+            }
+        }
+
+        private LanguageDescriptor _languageDescriptor;
+
+        private readonly TextValidityPredictor _textValidityPredictor;
+        private readonly LanguageService _languageService;
+        private readonly TextProcessingConfiguration _configuration;
+        
+        public TextDetectionProvider(TextValidityPredictor textValidityPredictor, LanguageService languageService, 
+            TextProcessingConfiguration configuration)
+        {
+            this._textValidityPredictor = textValidityPredictor;
+            this._languageService = languageService;
+            this._configuration = configuration;
+        }
+
+        public virtual TextDetectionResult GetText(IOCREngine ocrEngine, byte[] img)
+        {
+            try
+            {
+                var detectedLines = SpeakerNames.StripSpeakerLine(ocrEngine.GetTextLines(img), out var speaker);
+                var resultText = PreProcessTextLines(detectedLines);
+                var scorePrediction = _textValidityPredictor.Predict(detectedLines, out var validatedText);
+
+                return new TextDetectionResult(ocrEngine, _languageDescriptor)
+                {
+                    ValidityScore = scorePrediction,
+                    Text = _configuration.KeepFormatting ? string.Join(Environment.NewLine, detectedLines) :  resultText,
+                    ValidatedText = validatedText,
+                    Speaker = speaker
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new TextDetectionException("Text detection failed", ocrEngine.GetType(), ex);
+            }
+        }
+
+        public virtual Task<TextDetectionResult> GetTextAsync(IOCREngine ocrEngine, byte[] img)
+        {
+            return Factory.StartNew(() => GetText(ocrEngine, img));
+        }
+
+        private string PreProcessTextLines(IEnumerable<string> textLines)
+        {
+            return RegexStorage.MultipleSpacesRegex.Replace(string.Join(' ', textLines), " ");
+        }
+
+        public void Dispose()
+        {
+            _textValidityPredictor.Dispose();
+        }
+    }
+}
