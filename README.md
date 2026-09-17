@@ -6,7 +6,7 @@
   <h1 align="center" style="border: 0">KTranslate</h1>
   <h3 align="center" style="border: 0">Advanced Real-Time Screen Translator, with local translation</h3>
 
-<p align="center"><strong>English</strong> | <a href="docs/README-RU.md"><strong>Русский</strong></a></p>
+<p align="center"><strong>English</strong> | <a href="docs/README-ES.md"><strong>Español</strong></a></p>
 
 ## About This Fork
 
