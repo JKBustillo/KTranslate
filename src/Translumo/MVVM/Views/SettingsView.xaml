@@ -65,13 +65,30 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
-                    <Image
+                    <StackPanel
                         Grid.Row="0"
-                        Height="37"
-                        Margin="10,0,0,0"
+                        Margin="14,0,0,0"
                         HorizontalAlignment="Left"
-                        RenderOptions.BitmapScalingMode="HighQuality"
-                        Source="../../Resources/Icons/logo_full.png" />
+                        Orientation="Horizontal">
+                        <Grid Width="34" Height="34" VerticalAlignment="Center">
+                            <Path
+                                Data="M4,0 H30 A4,4 0 0 1 34,4 V22 A4,4 0 0 1 30,26 H14 L6,33 V26 H4 A4,4 0 0 1 0,22 V4 A4,4 0 0 1 4,0 Z"
+                                Fill="{DynamicResource LogoMarkBrush}" />
+                            <TextBlock
+                                Margin="0,0,0,7"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource LogoMarkForegroundBrush}"
+                                Text="K" />
+                        </Grid>
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="22"
+                            Foreground="{DynamicResource SidebarForegroundBrush}"><Run FontWeight="Bold" Text="K" /><Run Text="Translate" /></TextBlock>
+                    </StackPanel>
                     <DockPanel Grid.Row="1">
                         <materialDesign:ColorZone
                             Background="{DynamicResource SidebarBackgroundBrush}"

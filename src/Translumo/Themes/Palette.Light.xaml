@@ -24,6 +24,8 @@
     <!--  Semantic keys: the hue brushes above are control fills, these are the surfaces and text that must not follow them  -->
     <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#95c4cc" />
     <SolidColorBrush x:Key="SidebarForegroundBrush" Color="#fbffff" />
+    <SolidColorBrush x:Key="LogoMarkBrush" Color="#fbffff" />
+    <SolidColorBrush x:Key="LogoMarkForegroundBrush" Color="#2b3a3d" />
     <SolidColorBrush x:Key="AccentTextBrush" Color="#95c4cc" />
     <!--  the selected nav item blends into the content panel, so its background matches it  -->
     <SolidColorBrush x:Key="SidebarSelectionBackgroundBrush" Color="#fbffff" />
