@@ -9,6 +9,8 @@ namespace Translumo.Processing.TextProcessing
         public string Text { get; set; }
 
         public string ValidatedText { get; set; }
+
+        public string Speaker { get; set; }
         
         public float ValidityScore { get; set; }
         

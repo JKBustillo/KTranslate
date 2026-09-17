@@ -258,7 +258,7 @@ namespace Translumo.Processing
 
                         sequentialText = false;
                         //resultLogger.LogResults(detectedResults.Select(res => res.Result), screenshot);
-                        activeTranslationTasks.Add(TranslateTextAsync(bestDetected.Text, iterationId));
+                        activeTranslationTasks.Add(TranslateTextAsync(bestDetected, iterationId));
                     }
                 }
                 catch (CaptureException ex)
@@ -319,7 +319,7 @@ namespace Translumo.Processing
                     // TODO: sometimes one of task (win tts) is not complete long time and translation is not working
                     Task.WaitAll(taskResults);
                     TextDetectionResult bestDetected = GetBestDetectionResult(taskResults, 3);
-                    translationTask = TranslateTextAsync(bestDetected.Text, Guid.NewGuid());
+                    translationTask = TranslateTextAsync(bestDetected, Guid.NewGuid());
                 }
 
                 translationTask.Wait(TRANSLATION_TIMEOUT_MS);
@@ -341,9 +341,14 @@ namespace Translumo.Processing
             }
         }
 
-        private async Task TranslateTextAsync(string text, Guid iterationId)
+        private async Task TranslateTextAsync(TextDetectionResult detected, Guid iterationId)
         {
-            var translation = await _translator.TranslateTextAsync(text);
+            if (detected.Speaker != null)
+            {
+                SpeakerNames.Register(detected.Speaker);
+            }
+
+            var translation = await _translator.TranslateTextAsync(detected.Text);
             if (!string.IsNullOrWhiteSpace(translation) && !_textResultCacheService.IsTranslatedCached(translation, iterationId))
             {
                 Interlocked.Exchange(ref _lastTranslatedTextTicks, DateTime.UtcNow.Ticks);

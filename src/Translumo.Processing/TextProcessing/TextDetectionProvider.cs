@@ -7,6 +7,7 @@ using Translumo.Infrastructure.Language;
 using Translumo.OCR;
 using Translumo.Processing.Configuration;
 using Translumo.Processing.Exceptions;
+using Translumo.Translation;
 using static System.Threading.Tasks.Task;
 
 namespace Translumo.Processing.TextProcessing
@@ -41,7 +42,7 @@ namespace Translumo.Processing.TextProcessing
         {
             try
             {
-                var detectedLines = ocrEngine.GetTextLines(img);
+                var detectedLines = SpeakerNames.StripSpeakerLine(ocrEngine.GetTextLines(img), out var speaker);
                 var resultText = PreProcessTextLines(detectedLines);
                 var scorePrediction = _textValidityPredictor.Predict(detectedLines, out var validatedText);
 
@@ -49,7 +50,8 @@ namespace Translumo.Processing.TextProcessing
                 {
                     ValidityScore = scorePrediction,
                     Text = _configuration.KeepFormatting ? string.Join(Environment.NewLine, detectedLines) :  resultText,
-                    ValidatedText = validatedText
+                    ValidatedText = validatedText,
+                    Speaker = speaker
                 };
             }
             catch (Exception ex)

@@ -5,6 +5,7 @@ using Translumo.Infrastructure.Language;
 using Translumo.Translation.Configuration;
 using Translumo.Translation.Deepl;
 using Translumo.Translation.Google;
+using Translumo.Translation.Ollama;
 using Translumo.Translation.Papago;
 using Translumo.Translation.Yandex;
 
@@ -33,6 +34,8 @@ namespace Translumo.Translation
                     return new YandexTranslator(translatorConfiguration, _languageService, _actionDispatcher, _logger);
                 case Translators.Papago:
                     return new PapagoTranslator(translatorConfiguration, _languageService, _logger);
+                case Translators.Ollama:
+                    return new OllamaTranslator(translatorConfiguration, _languageService, _logger);
                 case Translators.Google:
                     return new GoogleTranslator(translatorConfiguration, _languageService, _logger);
                 default:

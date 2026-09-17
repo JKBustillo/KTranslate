@@ -44,7 +44,7 @@ Version 1.0.x includes many changes and improvements compared to versions 0.9.x.
 
 - **Integrated modern OCR engines**: Windows OCR (recommended), Tesseract 5.2 (legacy), EasyOCR (legacy)
 
-- **Available translators**: DeepL (recommended), Google Translate, Yandex Translate, Naver Papago.
+- **Available translators**: DeepL (recommended), Google Translate, Yandex Translate, Naver Papago, Ollama (local, requires a running Ollama server).
 
 - **Supported recognition languages**: English, Russian, Japanese, Chinese (Simplified), Korean.
 
