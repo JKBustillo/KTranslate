@@ -45,6 +45,14 @@ namespace Translumo.Controls
             }
 
             var key = _pressedKey ?? e.GetActualKey();
+            // a modifier alone is not a hotkey; wait for a real key
+            if (key is Key.LeftAlt or Key.RightAlt or Key.LeftCtrl or Key.RightCtrl or Key.LeftShift
+                or Key.RightShift or Key.LWin or Key.RWin)
+            {
+                e.Handled = true;
+                return;
+            }
+
             if (GamepadHotKey.Key != GamepadKeyCode.None)
             {
                 GamepadHotKey = new GamepadKeyCombination() { Key = GamepadKeyCode.None };
