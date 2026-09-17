@@ -16,6 +16,7 @@ Changes made in this fork:
 
 - **Ollama translator**: translates through a model running locally, so the app keeps working when the DeepL and Google web endpoints answer with 429 or a captcha.
 - **Speaker names**: the character label above a dialogue box is detected and kept out of the translation, and the learned names are reused so that names which are ordinary words (Sin, Guilty) stay untranslated.
+- **Light and dark theme**, with the Lookupper banner removed from the settings sidebar.
 - Hotkey and OCR debounce adjustments.
 
 See [NOTICE](NOTICE) for the attribution required by the license.
@@ -40,6 +41,8 @@ Builds of the original project are on the [Translumo releases page](https://gith
 
 - **Low latency**  
   Several optimizations reduce system impact and minimize latency between text appearance and translation.
+
+- **Light and dark theme**: switched from the toggle at the bottom of the settings sidebar.
 
 - **Integrated modern OCR engines**: Windows OCR (recommended), Tesseract 5.2 (legacy), EasyOCR (legacy)
 
