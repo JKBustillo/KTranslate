@@ -13,7 +13,7 @@
 		<SatelliteResourceLanguages>en-US;en</SatelliteResourceLanguages>
 		<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
 		<PublishSingleFile>true</PublishSingleFile>
-		<ApplicationIcon>Resources\Icons\favicon.ico</ApplicationIcon>
+		<ApplicationIcon>Resources\Icons\ktranslate.ico</ApplicationIcon>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
 
@@ -32,6 +32,7 @@
 
 	<ItemGroup>
     <None Remove="Resources\Icons\favicon.ico" />
+    <None Remove="Resources\Icons\ktranslate.ico" />
     <None Remove="Resources\Icons\HammersmithOne-Regular.ttf" />
     <None Remove="Resources\Icons\icons8-help-40.png" />
     <None Remove="Resources\Icons\icons8-high-priority-40.png" />
@@ -57,6 +58,9 @@
 
   <ItemGroup>
     <Resource Include="Resources\Icons\favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Icons\ktranslate.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Icons\HammersmithOne-Regular.ttf">
