@@ -1,0 +1,165 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <!--  Generic  -->
+    <system:String x:Key="Str.Login">Usuario</system:String>
+    <system:String x:Key="Str.Password">Contraseña</system:String>
+    <system:String x:Key="Str.ExitConfirmation" xml:space="preserve">¿Quieres cerrar la aplicación?&#13;Puedes usar el botón de minimizar para ocultar los ajustes (la app seguirá disponible en el icono de la bandeja).</system:String>
+    <system:String x:Key="Str.ExitConfirmationCaption">Confirmar salida</system:String>
+    <system:String x:Key="Str.NewVersion">¡Hay una versión nueva!</system:String>
+
+    <!--  Notifications  -->
+    <system:String x:Key="Str.Notification.CaptchaPass" xml:space="preserve">Completa el captcha en la web para poder usar el servicio.&#13;Puede hacer falta hacerlo con cada proxy configurado.</system:String>
+
+    <!--  Titles  -->
+    <system:String x:Key="Str.Title.SettingWindow" xml:space="preserve">Ajustes - KTranslate</system:String>
+    <system:String x:Key="Str.Title.BrowserWindow" xml:space="preserve">Navegador - KTranslate</system:String>
+
+    <!--  Tray  -->
+    <system:String x:Key="Str.Tray.ShowHideSettings">Mostrar u ocultar los ajustes</system:String>
+    <system:String x:Key="Str.Tray.ShowHideTranslation">Mostrar u ocultar la traducción</system:String>
+    <system:String x:Key="Str.Tray.Exit">Salir</system:String>
+
+    <!--  Chat  -->
+    <system:String x:Key="Str.Chat.SettingsOpened">Cierra los ajustes para empezar a traducir</system:String>
+    <system:String x:Key="Str.Chat.WindowLocked">Ventana de traducción bloqueada</system:String>
+    <system:String x:Key="Str.Chat.WindowUnlocked">Ventana de traducción desbloqueada</system:String>
+
+    <!--  Language settings  -->
+    <system:String x:Key="Str.LangSettings.SourceLang">Idioma de origen</system:String>
+    <system:String x:Key="Str.LangSettings.TranslationLang">Idioma de destino</system:String>
+    <system:String x:Key="Str.LangSettings.Translator">Traductor</system:String>
+    <system:String x:Key="Str.LangSettings.TtsSystem">Sistema de voz</system:String>
+
+    <!--  Hotkeys descriptions  -->
+    <system:String x:Key="Str.Hotkeys.ChatVisibility">Mostrar u ocultar la ventana de traducción</system:String>
+    <system:String x:Key="Str.Hotkeys.SettingsVisibility">Abrir o cerrar los ajustes</system:String>
+    <system:String x:Key="Str.Hotkeys.SelectArea">Seleccionar el área de captura</system:String>
+    <system:String x:Key="Str.Hotkeys.OnOffTranslation">Iniciar o detener la traducción</system:String>
+    <system:String x:Key="Str.Hotkeys.ShowSelectArea">Ver el área de captura seleccionada</system:String>
+    <system:String x:Key="Str.Hotkeys.OnceTranslate">Seleccionar un área y traducirla una vez</system:String>
+    <system:String x:Key="Str.Hotkeys.WindowChangeStyle">Bloquear o desbloquear la ventana de traducción</system:String>
+    <system:String x:Key="Str.Hotkeys.SettingsShowHelp">Pulsa '{0}' para abrir los ajustes</system:String>
+    <system:String x:Key="Str.Hotkeys.SelectAreaHelp">Pulsa '{0}' para elegir el área de detección</system:String>
+    <system:String x:Key="Str.Hotkeys.OnTranslationHelp">Pulsa '{0}' para empezar a traducir</system:String>
+    <system:String x:Key="Str.Hotkeys.GeneralHelp">Para manejar la app, usa el menú del icono de la bandeja o estos atajos:</system:String>
+
+    <!--  Appearance settings  -->
+    <system:String x:Key="Str.Settings.DarkTheme">Tema oscuro</system:String>
+    <system:String x:Key="Str.AppearanceSettings.WindowColor">Color de la ventana</system:String>
+    <system:String x:Key="Str.AppearanceSettings.FontColor">Color del texto</system:String>
+    <system:String x:Key="Str.AppearanceSettings.FontSize">Tamaño del texto</system:String>
+    <system:String x:Key="Str.AppearanceSettings.Bold">Negrita</system:String>
+    <system:String x:Key="Str.AppearanceSettings.ExcludeFromCaptue">Excluir de la captura</system:String>
+    <system:String x:Key="Str.AppearanceSettings.LineSpacing">Interlineado</system:String>
+    <system:String x:Key="Str.AppearanceSettings.WindowOpacity">Opacidad de la ventana</system:String>
+    <system:String x:Key="Str.AppearanceSettings.FontSizePanelCaption">Tamaño del texto — cambiar</system:String>
+    <system:String x:Key="Str.AppearanceSettings.FontColorPanelCaption">Color del texto — cambiar</system:String>
+    <system:String x:Key="Str.AppearanceSettings.KeepFormatting">Mantener el formato original</system:String>
+    <system:String x:Key="Str.AppearanceSettings.Left">Alinear a la izquierda</system:String>
+    <system:String x:Key="Str.AppearanceSettings.Center">Centrar</system:String>
+    <system:String x:Key="Str.AppearanceSettings.Right">Alinear a la derecha</system:String>
+    <system:String x:Key="Str.AppearanceSettings.Justify">Justificar</system:String>
+    <system:String x:Key="Str.AppearanceSettings.AutoClearTexts">Limpiar la ventana</system:String>
+    <system:String x:Key="Str.AppearanceSettings.AutoClearTexts2">tras estar inactiva</system:String>
+    <system:String x:Key="Str.AppearanceSettings.Ms">ms</system:String>
+
+
+    <!--  Proxy settings  -->
+    <system:String x:Key="Str.ProxySettings.Proxy">Proxy</system:String>
+    <system:String x:Key="Str.ProxySettings.IpAddress">Dirección IP</system:String>
+    <system:String x:Key="Str.ProxySettings.Port">Puerto</system:String>
+    <system:String x:Key="Str.ProxySettings.Note" xml:space="preserve">Usa proxies IPv4 para evitar que los servicios de traducción te bloqueen al recibir muchas peticiones a la vez.&#13;La app repartirá las peticiones entre las direcciones configuradas.</system:String>
+    <system:String x:Key="Str.ProxySettings.Caption">Lista de proxies — cambiar</system:String>
+
+
+    <!--  OCR settings  -->
+    <system:String x:Key="Str.OcrSettings.TesseractOcr">Tesseract OCR</system:String>
+    <system:String x:Key="Str.OcrSettings.WindowsOcr">Windows OCR</system:String>
+    <system:String x:Key="Str.OcrSettings.EasyOcr">EasyOCR</system:String>
+    <system:String x:Key="Str.OcrSettings.TesseractOcrDesc" xml:space="preserve">Tesseract 5.0 en modo LSTM. Una de las primeras soluciones de OCR libres y de las más conocidas.&#13;Reconoce bien el texto sobre fondos lisos y sencillos.&#13;&lt;Bold&gt;Impacto en el rendimiento:&lt;/Bold&gt; bajo</system:String>
+    <system:String x:Key="Str.OcrSettings.WindowsOcrDesc" xml:space="preserve">Solución de OCR propia de Microsoft. Se defiende mejor que Tesseract con fondos complicados.&#13;&lt;Bold&gt;Impacto en el rendimiento:&lt;/Bold&gt; mínimo</system:String>
+    <system:String x:Key="Str.OcrSettings.WindowsOcrDesc2">Puede que haya que instalar paquetes de idioma adicionales</system:String>
+    <system:String x:Key="Str.OcrSettings.EasyOcrDesc" xml:space="preserve">La solución de OCR libre más avanzada, de Jaided AI.&#13;Gran precisión incluso con fondos complicados y tipografías poco corrientes.&#13;&lt;Bold&gt;Impacto en el rendimiento:&lt;/Bold&gt; alto</system:String>
+    <system:String x:Key="Str.OcrSettings.EasyOcrDesc2">Hay que instalar paquetes adicionales (Python, PyTorch)</system:String>
+
+    <!--  About window  -->
+    <system:String x:Key="Str.About.MaintainedBy">Propietario y responsable: Aleksei Vekhov</system:String>
+    <system:String x:Key="Str.About.DevelopedBy">Autor: Danil Iushkov</system:String>
+    <system:String x:Key="Str.About.ProjectPage">Página del proyecto</system:String>
+    <system:String x:Key="Str.About.ReportIssue">Informar de un problema</system:String>
+
+    <!--  Navigation menu  -->
+    <system:String x:Key="Str.Navigation.Languages">Idiomas</system:String>
+    <system:String x:Key="Str.Navigation.Appearance">Apariencia</system:String>
+    <system:String x:Key="Str.Navigation.Ocr">Reconocimiento de texto</system:String>
+    <system:String x:Key="Str.Navigation.HotKeys">Atajos</system:String>
+
+    <!--  Languages  -->
+    <system:String x:Key="Str.Languages.English">Inglés</system:String>
+    <system:String x:Key="Str.Languages.Russian">Ruso</system:String>
+    <system:String x:Key="Str.Languages.Japanese">Japonés</system:String>
+    <system:String x:Key="Str.Languages.Korean">Coreano</system:String>
+    <system:String x:Key="Str.Languages.Chinese">Chino (simplificado)</system:String>
+    <system:String x:Key="Str.Languages.Italian">Italiano</system:String>
+    <system:String x:Key="Str.Languages.French">Francés</system:String>
+    <system:String x:Key="Str.Languages.German">Alemán</system:String>
+    <system:String x:Key="Str.Languages.Spanish">Español</system:String>
+    <system:String x:Key="Str.Languages.Portuguese">Portugués</system:String>
+    <system:String x:Key="Str.Languages.Vietnamese">Vietnamita</system:String>
+    <system:String x:Key="Str.Languages.Turkish">Turco</system:String>
+    <system:String x:Key="Str.Languages.Thai">Tailandés</system:String>
+    <system:String x:Key="Str.Languages.Arabic">Árabe</system:String>
+    <system:String x:Key="Str.Languages.Greek">Griego</system:String>
+    <system:String x:Key="Str.Languages.PortugueseBrazil">Portugués (BR)</system:String>
+    <system:String x:Key="Str.Languages.Polish">Polaco</system:String>
+    <system:String x:Key="Str.Languages.Belarusian">Bielorruso</system:String>
+    <system:String x:Key="Str.Languages.Persian">Persa</system:String>
+    <system:String x:Key="Str.Languages.Indonesian">Indonesio</system:String>
+    <system:String x:Key="Str.Languages.Bulgarian">Búlgaro</system:String>
+    <system:String x:Key="Str.Languages.Czech">Checo</system:String>
+    <system:String x:Key="Str.Languages.Danish">Danés</system:String>
+    <system:String x:Key="Str.Languages.Estonian">Estonio</system:String>
+    <system:String x:Key="Str.Languages.Finnish">Finés</system:String>
+    <system:String x:Key="Str.Languages.Hungarian">Húngaro</system:String>
+    <system:String x:Key="Str.Languages.Lithuanian">Lituano</system:String>
+    <system:String x:Key="Str.Languages.Latvian">Letón</system:String>
+    <system:String x:Key="Str.Languages.Dutch">Neerlandés</system:String>
+    <system:String x:Key="Str.Languages.Romanian">Rumano</system:String>
+    <system:String x:Key="Str.Languages.Slovak">Eslovaco</system:String>
+    <system:String x:Key="Str.Languages.Slovenian">Esloveno</system:String>
+    <system:String x:Key="Str.Languages.Swedish">Sueco</system:String>
+    <system:String x:Key="Str.Languages.Ukrainian">Ucraniano</system:String>
+
+    <!--  Dialog stages  -->
+    <system:String x:Key="Str.Stages.CheckPyModules">Comprobando los módulos instalados...</system:String>
+    <system:String x:Key="Str.Stages.PyModulesQuestion" xml:space="preserve">Faltan módulos de Python necesarios. ¿Quieres instalarlos ahora?&#13;¡Solo está disponible para tarjetas gráficas NVIDIA!</system:String>
+    <system:String x:Key="Str.Stages.PyModulesQuestion2" xml:space="preserve">Los módulos ocupan unos 5 GB de disco.&#13;La instalación puede tardar desde unos minutos hasta una hora.&#13;¿Quieres continuar?</system:String>
+    <system:String x:Key="Str.Stages.InstallationPyModule1">(1/3) Instalando el módulo 'pytorch'...</system:String>
+    <system:String x:Key="Str.Stages.InstallationPyModule2">(2/3) Instalando el módulo 'easyocr'...</system:String>
+    <system:String x:Key="Str.Stages.InstallationPyModule3">(3/3) Instalando el módulo 'pillow'...</system:String>
+    <system:String x:Key="Str.Stages.InstallationPyModuleTemplate">Instalando el módulo '{0}'...</system:String>
+    <system:String x:Key="Str.Stages.PyModulesInstalled">Los módulos necesarios ya están instalados</system:String>
+    <system:String x:Key="Str.Stages.PyModulesCheckError">No se pudo acceder a Python para comprobar los módulos</system:String>
+    <system:String x:Key="Str.Stages.CheckLangPack">Comprobando el paquete de idioma...</system:String>
+    <system:String x:Key="Str.Stages.OCRLangPackQuestion" xml:space="preserve">El reconocimiento de texto (OCR) para el idioma '{0}' no está instalado en Windows.&#13;¿Quieres instalarlo ahora?</system:String>
+    <system:String x:Key="Str.Stages.TTSLangPackQuestion" xml:space="preserve">La voz (TTS) para el idioma '{0}' no está instalada en Windows.&#13;¿Quieres instalarla ahora?</system:String>
+    <system:String x:Key="Str.Stages.InstallationLangPack">Instalando el paquete de idioma...</system:String>
+    <system:String x:Key="Str.Stages.LangPackInstalledRestart">El paquete de idioma se instaló. Reinicia el ordenador</system:String>
+    <system:String x:Key="Str.Stages.LangPackInstalledTtsRestart" xml:space="preserve">El paquete de idioma se instaló.&#13;Si la voz no funciona, prueba a reiniciar la aplicación.</system:String>
+    <system:String x:Key="Str.Stages.InstallationLangError">No se pudo instalar el paquete: '{0}'</system:String>
+    <system:String x:Key="Str.Stages.CheckLangPackError" xml:space="preserve">Error inesperado al comprobar las características de Windows.&#13;Comprueba que la aplicación se esté ejecutando como administrador.</system:String>
+    <system:String x:Key="Str.Stages.SwitchLanguage">Cambiando el idioma...</system:String>
+    <system:String x:Key="Str.Stages.SwitchLanguageError">No se pudo cambiar el idioma: '{0}'</system:String>
+    <system:String x:Key="Str.Stages.TtsNotSupportLanguageTemplate">{0} '{1}' no admite el idioma '{2}'</system:String>
+
+    <!--  Buttons  -->
+    <system:String x:Key="Str.Button.SettingProxy">Configurar proxy</system:String>
+    <system:String x:Key="Str.Button.ShowText">Ver texto de ejemplo</system:String>
+    <system:String x:Key="Str.Button.Apply">Aplicar</system:String>
+
+
+
+</ResourceDictionary>

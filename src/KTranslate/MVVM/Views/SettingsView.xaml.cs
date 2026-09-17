@@ -129,15 +129,5 @@ namespace KTranslate.MVVM.Views
                 sideNav.SelectedItem = (MaterialDesignExtensions.Model.INavigationItem)sideNav.Items[0];
             }
         }
-
-        private void OnLookupperLinkClick(object sender, RoutedEventArgs e)
-        {
-            var destinationurl = LocalizationManager.GetValue($"Str.Lookupper.Url");
-            var sInfo = new System.Diagnostics.ProcessStartInfo(destinationurl)
-            {
-                UseShellExecute = true
-            };
-            System.Diagnostics.Process.Start(sInfo);
-        }
     }
 }

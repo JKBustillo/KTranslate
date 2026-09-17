@@ -21,9 +21,9 @@ namespace KTranslate.Utils
     {
         public static IEnumerable<CultureInfo> AvailableLocalizations = new[]
         {
-            new CultureInfo("en-US"), 
+            new CultureInfo("en-US"),
             new CultureInfo("ru-RU"),
-            new CultureInfo("zh-CN")
+            new CultureInfo("es-ES")
         };
 
         private static readonly IDictionary<string, CallbackContext> ChangedValueCallbacks;
