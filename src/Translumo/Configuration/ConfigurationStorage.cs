@@ -69,9 +69,9 @@ namespace Translumo.Configuration
             {
                 //IGNORE
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                _logger.LogError($"Unexpected error loading configuration");
+                _logger.LogError(ex, "Unexpected error loading configuration");
             }
         }
 

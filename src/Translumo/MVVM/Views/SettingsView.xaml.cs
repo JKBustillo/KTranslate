@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
@@ -25,6 +26,8 @@ namespace Translumo.MVVM.Views
         {
             InitializeComponent();
             this.Loaded += OnLoaded;
+            this.Closed += (_, _) => ThemeManager.ThemeChanged -= OnThemeChanged;
+            ThemeManager.ThemeChanged += OnThemeChanged;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -32,8 +35,29 @@ namespace Translumo.MVVM.Views
             _toOpenStoryboard = CreateStoryboardToOpenWindow(true);
             _toCloseStoryboard = CreateStoryboardToOpenWindow(false);
 
+            ApplyTitleBarTheme();
             this.Activate();
         }
+
+        private void OnThemeChanged(object sender, EventArgs e) => ApplyTitleBarTheme();
+
+        // the title bar is drawn by Windows, so it keeps the system colors unless DWM is told otherwise
+        private void ApplyTitleBarTheme()
+        {
+            const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
+
+            var handle = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            if (handle == IntPtr.Zero)
+            {
+                return;
+            }
+
+            int useDarkMode = ThemeManager.CurrentTheme == ThemeManager.DarkTheme ? 1 : 0;
+            DwmSetWindowAttribute(handle, DWMWA_USE_IMMERSIVE_DARK_MODE, ref useDarkMode, sizeof(int));
+        }
+
+        [DllImport("dwmapi.dll")]
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attribute, ref int value, int size);
 
         private void ViewModelOnPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {

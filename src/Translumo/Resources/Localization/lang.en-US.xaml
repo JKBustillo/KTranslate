@@ -14,8 +14,8 @@
     <system:String x:Key="Str.Notification.CaptchaPass" xml:space="preserve">Please complete captcha on the website to use service.&#13;Also it may be required for each registered proxy.</system:String>
 
     <!--  Titles  -->
-    <system:String x:Key="Str.Title.SettingWindow" xml:space="preserve">Settings - Translumo</system:String>
-    <system:String x:Key="Str.Title.BrowserWindow" xml:space="preserve">Browser - Translumo</system:String>
+    <system:String x:Key="Str.Title.SettingWindow" xml:space="preserve">Settings - KTranslate</system:String>
+    <system:String x:Key="Str.Title.BrowserWindow" xml:space="preserve">Browser - KTranslate</system:String>
 
     <!--  Tray  -->
     <system:String x:Key="Str.Tray.ShowHideSettings">Show/Hide settings</system:String>
@@ -47,6 +47,7 @@
     <system:String x:Key="Str.Hotkeys.GeneralHelp">To control the app use context menu from tray or following hotkeys:</system:String>
 
     <!--  Appearance settings  -->
+    <system:String x:Key="Str.Settings.DarkTheme">Dark theme</system:String>
     <system:String x:Key="Str.AppearanceSettings.WindowColor">Window color</system:String>
     <system:String x:Key="Str.AppearanceSettings.FontColor">Font color</system:String>
     <system:String x:Key="Str.AppearanceSettings.FontSize">Font size</system:String>

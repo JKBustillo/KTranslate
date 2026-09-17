@@ -14,8 +14,8 @@
     <system:String x:Key="Str.Notification.CaptchaPass" xml:space="preserve">Пожалуйста пройдите капчу для использования сервиса&#13;Это окно может появиться для каждого задействованного прокси.</system:String>
 
     <!--  Titles  -->
-    <system:String x:Key="Str.Title.SettingWindow" xml:space="preserve">Настройки - Translumo</system:String>
-    <system:String x:Key="Str.Title.BrowserWindow" xml:space="preserve">Браузер - Translumo</system:String>
+    <system:String x:Key="Str.Title.SettingWindow" xml:space="preserve">Настройки - KTranslate</system:String>
+    <system:String x:Key="Str.Title.BrowserWindow" xml:space="preserve">Браузер - KTranslate</system:String>
 
     <!--  Tray  -->
     <system:String x:Key="Str.Tray.ShowHideSettings">Показать/Скрыть настройки</system:String>
@@ -47,6 +47,7 @@
     <system:String x:Key="Str.Hotkeys.GeneralHelp">Для управления приложением вы можете использовать контекстное меню из трея или горячие клавиши:</system:String>
 
     <!--  Appearance settings  -->
+    <system:String x:Key="Str.Settings.DarkTheme">Тёмная тема</system:String>
     <system:String x:Key="Str.AppearanceSettings.WindowColor">Цвет окна</system:String>
     <system:String x:Key="Str.AppearanceSettings.FontColor">Цвет шрифта</system:String>
     <system:String x:Key="Str.AppearanceSettings.FontSize">Размер шрифта</system:String>

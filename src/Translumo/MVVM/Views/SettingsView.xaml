@@ -49,7 +49,7 @@
         <system:Boolean x:Key="ConfirmationClose">True</system:Boolean>
     </Window.Resources>
 
-    <Border Background="{StaticResource SecondaryHueLightBrush}">
+    <Border Background="{DynamicResource SecondaryHueLightBrush}">
         <materialDesign:DialogHost CloseOnClickAway="{Binding DialogService.AllowCloseOnClickAway}" IsOpen="{Binding DialogService.IsOpen}">
             <materialDesign:DialogHost.DialogContent>
                 <views:SimpleDialogView />
@@ -59,12 +59,11 @@
                     <ColumnDefinition Width="250" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" Background="{StaticResource PrimaryHueDarkBrush}">
+                <Grid Grid.Column="0" Background="{DynamicResource SidebarBackgroundBrush}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="68" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="50" />
-                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Image
                         Grid.Row="0"
@@ -74,18 +73,21 @@
                         RenderOptions.BitmapScalingMode="HighQuality"
                         Source="../../Resources/Icons/logo_full.png" />
                     <DockPanel Grid.Row="1">
-                        <materialDesign:ColorZone Mode="PrimaryDark">
+                        <materialDesign:ColorZone
+                            Background="{DynamicResource SidebarBackgroundBrush}"
+                            Foreground="{DynamicResource SidebarForegroundBrush}"
+                            Mode="Custom">
                             <mde:SideNavigation
                                 Name="SnMenu"
                                 Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                                IconForeground="{DynamicResource MaterialDesignDarkForeground}"
+                                IconForeground="{DynamicResource SidebarForegroundBrush}"
                                 Items="{Binding Path=NavigationItems, Mode=OneTime}"
-                                LabelForeground="#FFFAFAFA"
+                                LabelForeground="{DynamicResource SidebarForegroundBrush}"
                                 Loaded="SnMenu_Loaded"
                                 NavigationItemFeedback="{DynamicResource SecondaryHueLightBrush}"
                                 NavigationItemSelectedCommand="{Binding NavigationItemSelectedCommand}"
-                                SelectionBackground="{DynamicResource MaterialDesignBackground}"
-                                SelectionForeground="{DynamicResource MaterialDesignBackground}"
+                                SelectionBackground="{DynamicResource SidebarSelectionBackgroundBrush}"
+                                SelectionForeground="{DynamicResource SidebarSelectionForegroundBrush}"
                                 Style="{DynamicResource MaterialSideNavigationBlock}" />
                         </materialDesign:ColorZone>
                     </DockPanel>
@@ -108,6 +110,25 @@
                                 </ItemsPanelTemplate>
                             </ListView.ItemsPanel>
                         </ListView>
+                        <StackPanel
+                            Margin="0,0,6,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            DockPanel.Dock="Right"
+                            Orientation="Horizontal">
+                            <wpf:PackIcon
+                                Width="18"
+                                Height="18"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource SidebarForegroundBrush}"
+                                Kind="WeatherNight" />
+                            <ToggleButton
+                                Margin="6,0,0,0"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding SystemConfiguration.DarkThemeEnabled, Mode=TwoWay}"
+                                Style="{StaticResource PrimaryToggleButton}"
+                                ToolTip="{DynamicResource Str.Settings.DarkTheme}" />
+                        </StackPanel>
                         <Button
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
@@ -120,27 +141,6 @@
                                 Style="{StaticResource SystemAdditionalIcon}" />
                         </Button>
                     </DockPanel>
-                    <Button
-                        Grid.Row="3"
-                        Height="105"
-                        Padding="0"
-                        Background="White"
-                        BorderThickness="0,0,1,0"
-                        Click="OnLookupperLinkClick"
-                        Cursor="Hand">
-                        <StackPanel>
-                            <TextBlock
-                                Margin="12,8,0,0"
-                                FontSize="18"
-                                Text="{DynamicResource Str.Lookupper.ProjectNote}" />
-                            <Image
-                                Height="60"
-                                Margin="14,8,14,14"
-                                HorizontalAlignment="Left"
-                                RenderOptions.BitmapScalingMode="HighQuality"
-                                Source="../../Resources/Icons/lookupper.png" />
-                        </StackPanel>
-                    </Button>
                 </Grid>
 
                 <ContentControl
