@@ -22,6 +22,7 @@ namespace KTranslate.Processing.TextProcessing
         private const double LOWER_SIMILARITY_THRESHOLD = 0.55;
         private const double UPPER_SIMILARITY_THRESHOLD = 0.9;
         private const double TRANSLATED_SIMILARITY_THRESHOLD = 0.955;
+        private const int GROWTH_MIN_LETTERS = 10;
 
         private DateTime? _cachedDateTime;
         private Guid _iterationId = Guid.NewGuid();
@@ -145,6 +146,11 @@ namespace KTranslate.Processing.TextProcessing
             var threshold = isAsianLanguage ? LOWER_SIMILARITY_THRESHOLD : SIMILARITY_THRESHOLD;
             foreach (var cachedTextPair in _cachedTexts)
             {
+                if (IsContinuationOf(cachedTextPair.Key, text))
+                {
+                    continue;
+                }
+
                 var textSimilarity = GetTextSimilarity(cachedTextPair.Key, text);
                 if (textSimilarity > threshold)
                 {
@@ -170,6 +176,21 @@ namespace KTranslate.Processing.TextProcessing
             }
 
             return false;
+        }
+
+        // Games type dialogue out letter by letter, so a finished line is similar enough to the half-read one it grew
+        // from to be dropped as a duplicate. The last word of the cached text is ignored because it may be half typed.
+        private static bool IsContinuationOf(string cachedText, string text)
+        {
+            if (text.Length - cachedText.Length < GROWTH_MIN_LETTERS)
+            {
+                return false;
+            }
+
+            var lastSpace = cachedText.LastIndexOf(' ');
+            var prefix = lastSpace > 0 ? cachedText.Substring(0, lastSpace) : cachedText;
+
+            return prefix.Length >= GROWTH_MIN_LETTERS && text.StartsWith(prefix, StringComparison.OrdinalIgnoreCase);
         }
 
         private double GetTextSimilarity(string text1, string text2)
