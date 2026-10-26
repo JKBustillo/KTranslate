@@ -41,7 +41,10 @@ namespace KTranslate.Translation
             var name = match.Groups[1].Value;
             var rest = lines.Skip(1).ToArray();
             var restText = string.Join(' ', rest).Trim();
-            var isSpeakerLabel = rest.Length > 0 && (restText.Length >= MIN_DIALOGUE_LENGTH || !restText.Any(char.IsLetter));
+            // A name seen earlier in the session is trusted with dialogue of any length, which is how a short reply
+            // such as "Master." gets through the minimum meant to reject "Yes / No" menus.
+            var isSpeakerLabel = rest.Length > 0 &&
+                                 (restText.Length >= MIN_DIALOGUE_LENGTH || !restText.Any(char.IsLetter) || Names.ContainsKey(name));
             if (!isSpeakerLabel && !(rest.Length == 0 && Names.ContainsKey(name)))
             {
                 return lines;
