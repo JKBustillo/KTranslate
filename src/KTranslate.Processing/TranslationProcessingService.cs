@@ -197,6 +197,7 @@ namespace KTranslate.Processing
 
                         if (activeTranslationTasks.Count >= MAX_TRANSLATE_TASK_POOL)
                         {
+                            _textResultCacheService.KeepAlive();
                             continue;
                         }
 

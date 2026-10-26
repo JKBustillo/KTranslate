@@ -83,6 +83,13 @@ namespace KTranslate.Processing.TextProcessing
             return hasSimilarity;
         }
 
+        // For iterations that skip reading the screen: the cache would otherwise expire meanwhile and the line still on
+        // screen would be translated again.
+        public void KeepAlive()
+        {
+            _cachedDateTime = DateTime.UtcNow;
+        }
+
         public void EndIteration()
         {
             _cachedTextsCurrentIteration.ForEach(AddCachedText);
