@@ -22,7 +22,8 @@ namespace KTranslate.Processing.TextProcessing
         private const double LOWER_SIMILARITY_THRESHOLD = 0.55;
         private const double UPPER_SIMILARITY_THRESHOLD = 0.9;
         private const double TRANSLATED_SIMILARITY_THRESHOLD = 0.955;
-        private const int GROWTH_MIN_LETTERS = 10;
+        // Short enough for a two-word opener such as "...So", long enough that a stray match is unlikely
+        private const int MIN_PREFIX_LENGTH = 4;
 
         private DateTime? _cachedDateTime;
         private Guid _iterationId = Guid.NewGuid();
@@ -148,6 +149,9 @@ namespace KTranslate.Processing.TextProcessing
             {
                 if (IsContinuationOf(cachedTextPair.Key, text))
                 {
+                    // Still the same line being typed out, so it keeps the iteration id: a longer read that translates
+                    // to what was already sent is caught as a duplicate instead of being shown twice.
+                    hasSimilar = true;
                     continue;
                 }
 
@@ -180,9 +184,11 @@ namespace KTranslate.Processing.TextProcessing
 
         // Games type dialogue out letter by letter, so a finished line is similar enough to the half-read one it grew
         // from to be dropped as a duplicate. The last word of the cached text is ignored because it may be half typed.
+        // Any growth counts: every partial read is cached too, so a minimum would let the read just before the finished
+        // line block it.
         private static bool IsContinuationOf(string cachedText, string text)
         {
-            if (text.Length - cachedText.Length < GROWTH_MIN_LETTERS)
+            if (text.Length <= cachedText.Length)
             {
                 return false;
             }
@@ -190,7 +196,7 @@ namespace KTranslate.Processing.TextProcessing
             var lastSpace = cachedText.LastIndexOf(' ');
             var prefix = lastSpace > 0 ? cachedText.Substring(0, lastSpace) : cachedText;
 
-            return prefix.Length >= GROWTH_MIN_LETTERS && text.StartsWith(prefix, StringComparison.OrdinalIgnoreCase);
+            return prefix.Length >= MIN_PREFIX_LENGTH && text.StartsWith(prefix, StringComparison.OrdinalIgnoreCase);
         }
 
         private double GetTextSimilarity(string text1, string text2)
