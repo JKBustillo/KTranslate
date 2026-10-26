@@ -48,7 +48,7 @@ Builds of the original project are on the [Translumo releases page](https://gith
 
 - **Available translators**: Ollama (local, recommended), DeepL, Google Translate, Yandex Translate, Naver Papago.
 
-  Ollama runs the translation on your own machine, with no quota and no rate limiting. Install [Ollama](https://ollama.com), pull the model named in `OllamaTranslator.cs` (`ollama pull qwen2.5:14b`) and leave it running.
+  Ollama runs the translation on your own machine, with no quota and no rate limiting. Install [Ollama](https://ollama.com), pull the models named in `OllamaTranslator.cs` (`ollama pull qwen2.5:14b` and `ollama pull aya-expanse:8b`, the fallback for lines qwen answers in Chinese) and leave it running.
 
 - **Supported recognition languages**: English, Russian, Japanese, Chinese (Simplified), Korean.
 
