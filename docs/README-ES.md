@@ -48,7 +48,7 @@ Las versiones compiladas del proyecto original están en la [página de releases
 
 - **Traductores disponibles**: Ollama (local, recomendado), DeepL, Google Translate, Yandex Translate, Naver Papago.
 
-  Ollama traduce en tu propio equipo, sin cuotas ni límites de peticiones. Instala [Ollama](https://ollama.com), descarga el modelo indicado en `OllamaTranslator.cs` (`ollama pull qwen2.5:14b`) y déjalo corriendo.
+  Ollama traduce en tu propio equipo, sin cuotas ni límites de peticiones. Instala [Ollama](https://ollama.com), descarga el modelo indicado en `OllamaTranslator.cs` (`ollama pull translategemma:12b`) y déjalo corriendo.
 
 - **Idiomas reconocidos**: inglés, ruso, japonés, chino (simplificado) y coreano.
 
